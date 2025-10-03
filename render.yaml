@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: darkmods-cpanel
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: SESSION_DIR
+        value: /data/sessions
+    disk:
+      name: sessions
+      mountPath: /data
+      sizeGB: 1
